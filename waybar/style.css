@@ -1,0 +1,316 @@
+@import "colors-waybar.css";
+
+/*---ОБЩЕЕ--------------------------------------------------------*/
+* {
+    font-family: JetBrainsMono;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*---БАР--------------------------------------------------------*/
+window#waybar {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+}
+
+/*---TOOLTIP--------------------------------------------------------*/
+tooltip {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    animation: tooltipFadeIn 0.2s ease-out;
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*-Надпись-*/
+tooltip label {
+    color: @foreground;
+}
+
+/*---ОСНОВНЫЕ МОДУЛИ--------------------------------------------------------*/
+#custom-logo,
+#clock,
+#window,
+#workspaces,
+#workspaces button,
+#tray,
+#language,
+#custom-micro,
+#custom-music,
+#custom-music1,
+#custom-mako,
+#custom-cava,
+#custom-swaync,
+#custom-powermenu,
+#pulseaudio {
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 12px;
+    margin: 5px 3px;
+    font-size: 17px;
+    color: @foreground;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover animations */
+#custom-logo:hover,
+#clock:hover,
+#language:hover,
+#custom-micro:hover,
+#custom-music:hover,
+#custom-music1:hover,
+#custom-mako:hover,
+#custom-swaync:hover,
+#custom-powermenu:hover,
+#pulseaudio:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Active/Click animations */
+#custom-logo:active,
+#custom-micro:active,
+#custom-music1:active,
+#custom-powermenu:active,
+#pulseaudio:active {
+    transform: translateY(0px) scale(0.95);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#language {
+    padding-right: 15px;
+    padding-left: 15px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+#custom-weather,
+#clock {
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 19px;
+    color: @foreground;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#custom-powermenu {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 5px;
+    font-size: 18px;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 20, 0.8));
+}
+
+#custom-powermenu:hover {
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.2), rgba(255, 50, 50, 0.2));
+    color: #ff6b6b;
+}
+
+#custom-weather,
+#clock,
+#custom-logo {
+    color: @foreground;
+}
+
+#custom-micro {
+    font-size: 20px;
+    animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+#custom-logo {
+    padding: 10px 15px;
+    font-size: 17px;
+    margin-left: 7.5px;
+    margin-right: 5px;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(30, 30, 30, 0.9));
+}
+
+#custom-logo:hover {
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(200, 200, 200, 0.1));
+}
+
+#custom-weather {
+    margin-left: 7.5px;
+}
+
+/* Workspaces animations */
+#workspaces {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 5px;
+}
+
+#workspaces button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin: 2px;
+    padding: 5px 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+#workspaces button.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+#workspaces button.urgent {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000000;
+    animation: urgentBlink 1s infinite;
+}
+
+@keyframes urgentBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Music module animation */
+#custom-music {
+    animation: musicScroll 15s linear infinite;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@keyframes musicScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+/* Audio visualizer effect */
+#custom-cava {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: visualizer 0.1s ease-in-out infinite;
+}
+
+@keyframes visualizer {
+    0%, 100% {
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Pulseaudio volume indicator */
+#pulseaudio {
+    position: relative;
+}
+
+#pulseaudio:after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    border-radius: 1px;
+    animation: volumeIndicator 2s ease-in-out infinite;
+}
+
+@keyframes volumeIndicator {
+    0%, 100% {
+        opacity: 0.3;
+        width: 10px;
+    }
+    50% {
+        opacity: 1;
+        width: 30px;
+    }
+}
+
+/* Smooth entrance animation for all modules */
+#custom-logo,
+#workspaces,
+#custom-micro,
+#custom-music,
+#custom-music1,
+#language,
+#pulseaudio,
+#clock,
+#custom-powermenu {
+    animation: moduleSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes moduleSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger the animations */
+#custom-powermenu { animation-delay: 0.1s; }
+#workspaces { animation-delay: 0.2s; }
+#custom-micro { animation-delay: 0.3s; }
+#custom-music { animation-delay: 0.4s; }
+#language { animation-delay: 0.5s; }
+#pulseaudio { animation-delay: 0.6s; }
+#clock { animation-delay: 0.7s; }

@@ -1,0 +1,25 @@
+@define-color foreground #ffffff;
+@define-color background #000000;
+@define-color cursor #ffffff;
+
+@define-color color0 #000000;
+@define-color color1 #1a1a1a;
+@define-color color2 #333333;
+@define-color color3 #4d4d4d;
+@define-color color4 #666666;
+@define-color color5 #808080;
+@define-color color6 #999999;
+@define-color color7 #ffffff;
+@define-color color8 #b3b3b3;
+@define-color color9 #1a1a1a;
+@define-color color10 #333333;
+@define-color color11 #4d4d4d;
+@define-color color12 #666666;
+@define-color color13 #808080;
+@define-color color14 #999999;
+@define-color color15 #ffffff;
+
+/* Animation variables */
+@define-color hover-bg rgba(255, 255, 255, 0.1);
+@define-color active-bg rgba(255, 255, 255, 0.2);
+@define-color transparent rgba(0, 0, 0, 0);
